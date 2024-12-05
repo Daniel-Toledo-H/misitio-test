@@ -38,7 +38,31 @@
                 transform: translateY(0);
             }
         }
+        .error {
+            color: red;
+            font-size: 2rem;
+        }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Define el path permitido
+            const allowedPath = "/ruta-permitida";
+
+            // Obtiene el path actual de la URL
+            const currentPath = window.location.pathname;
+
+            // Verifica si el path es el permitido
+            if (currentPath !== allowedPath) {
+                // Si no es el permitido, muestra un mensaje de error o redirige
+                document.body.innerHTML = `
+                    <div class="error">
+                        <h1>Acceso no permitido</h1>
+                        <p>Esta página solo está disponible en el path ${allowedPath}</p>
+                    </div>
+                `;
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="container">
